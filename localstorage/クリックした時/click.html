@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>GRAYCODE JavaScript</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    // 対象の取り方
+    // document.getElementById("id名");
+    // document.getElementByIdを省略して「id名」のみで記述も可能
+
+    // document.getElementById("id名").getElementsByClassName("クラス名");
+    // id内の要素をclassを指定して取得
+
+
+
+
+    // ページ読み込み時に実行したい場合。
+    // jQueryのreadyメソッドでの書き方
+    // $(document).ready(function () {実行したい処理});
+    // 上記を省略表記したもの
+    // $(function () {実行したい処理});
+    // jQueryのreadyメソッドは、通常、指定したもの全てが順に実行されます。
+    // onloadイベントは最後に指定したものだけが実行されます。
+    window.onload = function () {
+
+      const a = "java";
+      const b = "javascript";
+      console.log(a + b);
+
+      const c = "java";
+      const d = "javascript";
+      console.log(a, b);
+
+      const array = ["大吉", "中吉", "小吉", "凶", "大凶"];
+      console.log(array);
+      console.log(array[0]);
+
+      const resultTable = [
+        ["draw", "win", "lose"],
+        ["lose", "draw", "win"],
+        ["win", "lose", "draw"],
+      ];
+      console.log(resultTable);
+      console.log(resultTable[0])
+      console.log(resultTable[0][0])
+      console.log(resultTable[1])
+
+
+      const userHand = 2;
+      const computerHand = 1;
+      console.log(userHand)
+      console.log(computerHand)
+
+
+      const result = resultTable[userHand][computerHand];
+      console.log(result);
+    }
+
+
+    window.addEventListener('load', function () {
+      // ID＝button1を.クリックした時に,実行したい処理
+      button1.addEventListener('click', function () {
+        // document.write("表示したい文字列");
+        var sampleArea = document.getElementById("target");
+        sampleArea.innerHTML = "表示したい文字列";
+      });
+    
+
+     // テキストを入れるための配列を用意する
+      const tweets = [];
+
+      // ID：BTNをクリックしたら、変数TW＝INPUTの取得した中身と定義している所
+      $("#btn").on("click", function () {
+        const tw = $("#input").val();
+        //TWEETSの空要素に（）の中身をぶち込んでいる所。
+        tweets.unshift("<p>" + tw + "</p>");
+        // tweetの要素をtweetsに書き換えている所。
+        $("#tweet").html(tweets);
+        // ID:inputに空要素取得させてる所。
+        $("#input").val("");
+    // // ページ読み込み時に実行したい処理
+      });
+
+    });
+
+  </script>
+</head>
+
+<body>
+  <h1>JavaScriptレシピ</h1>
+  <button id="button1">クリック！</button>
+  <div id="target">ここを変える-id="target"</div>
+  <div class="target"> ここを変える-class="target"</div>
+  <h1 class="title">配列の練習</h1>
+  <input type="text" id="input">
+  <button id="btn">tweet</button>
+  <div>
+    <h1>ここにブチ込まれます。</h1>
+    <div id="tweet" class="TEST">
+      <h1>ここの文字は消えます</h1>
+  
+    </div>
+  </div>
+  <div id="echo"></div>
+  <select name="" id="ç"></select>
+</body>
+
+</html>

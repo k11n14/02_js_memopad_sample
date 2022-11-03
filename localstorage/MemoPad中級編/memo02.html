@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>myMemoPad中級</title>
+  <link rel="stylesheet" href="../MemoPad初級編/css/sample.css">
+</head>
+
+<body>
+  <header>
+    <h1>MemoPad中級編</h1>
+  </header>
+
+  <main>
+    <input type="text" id="input">
+    <textarea id="text_area"></textarea>
+    <ul>
+      <li id="save">Save</li>
+      <li id="clear">Clear</li>
+    </ul>
+    <div class="Date"></div>
+    <div id="tweet"></div>
+  </main>
+
+  <footer>
+    <small>G's</small>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    // 変数置き場
+    // テキストを入れるための配列を用意する所。------------------------------
+    const tweets = [];
+    // ----------------------------------------------------------------
+    // ID=SAVE をクリックする事で動作する所。---------------------------
+    $("#save").on("click", function () {
+      // CLASS＝INPUTとTEXTAREAから取得したものに変数に与えている所。
+      const input = $("#input").val();
+      const text = $("#text_area").val();
+      // CLASS＝INPUTとTEXTAREAから取得した後に取得したもの消したい
+      $("#text_area").val("");
+      $("#input").val("");
+      // 今日の日付に変数与えている所。
+      const now = new Date();
+      // 上記３つの変数で配列を作っている所。
+      const data = {
+        title: input,
+        text: text,
+        date: now,
+      };
+      console.log(data)
+      // 取得したテキストを配列に追加する
+      tweets.unshift("<p>" + data.title + data.text + "</p>");
+      // タグに入ったtweetを画面に表示する
+      $("#tweet").html(tweets);
+
+      console.log(data);
+      // 普通のデータをジョンソンデータに直している所。
+      const jsonData = JSON.stringify(data);
+      console.log(jsonData)
+      // ローカルストレージにデータを直している所。
+      localStorage.setItem("memo", jsonData);
+    });
+    // ----------------------------------------------------------------
+    // ID=CLEAR をクリックする事で動作する所。--------------------------
+    $("#clear").on("click", function () {
+      localStorage.removeItem("memo");
+      $("#text_area").val("");
+      $("#input").val("");
+    });
+    // ----------------------------------------------------------------
+    // ローカルストレージにデータがあるなら動作する所。------------------
+    if (localStorage.getItem("memo")) {
+      const text = localStorage.getItem("memo");
+      console.log(text)
+      const jsonData = localStorage.getItem("memo");
+      const data = JSON.parse(jsonData);
+      console.log(data);
+      $("#text_area").val(data.text + data.date);
+      $("#input").val(data.title);
+    }
+    // ----------------------------------------------------------------
+ 
+
+
+
+  </script>
+
+</body>
+
+</html>
