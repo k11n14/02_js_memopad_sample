@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>GRAYCODE JavaScript</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="index.css">
   <script>
     // 対象の取り方
     // document.getElementById("id名");
@@ -66,9 +67,14 @@
         var sampleArea = document.getElementById("target");
         sampleArea.innerHTML = "表示したい文字列";
       });
-    
 
-     // テキストを入れるための配列を用意する
+
+
+
+      // ーーーーーーーーーーーーーーーーーー
+
+
+      // テキストを入れるための配列を用意する
       const tweets = [];
 
       // ID：BTNをクリックしたら、変数TW＝INPUTの取得した中身と定義している所
@@ -80,7 +86,7 @@
         $("#tweet").html(tweets);
         // ID:inputに空要素取得させてる所。
         $("#input").val("");
-    // // ページ読み込み時に実行したい処理
+        // // ページ読み込み時に実行したい処理
       });
 
     });
@@ -93,14 +99,21 @@
   <button id="button1">クリック！</button>
   <div id="target">ここを変える-id="target"</div>
   <div class="target"> ここを変える-class="target"</div>
+
+
+
+  <!-- ーーーーーーーーーーーーーーーー -->
+
+
+
   <h1 class="title">配列の練習</h1>
   <input type="text" id="input">
   <button id="btn">tweet</button>
-  <div>
-    <h1>ここにブチ込まれます。</h1>
+  <div class="Tech">
+    ここの文字は消えません。
     <div id="tweet" class="TEST">
-      <h1>ここの文字は消えます</h1>
-  
+      ここにぶち込み、文字は消えます。
+      <p>これは要素Pです。同じく消えます。</p>
     </div>
   </div>
   <div id="echo"></div>
