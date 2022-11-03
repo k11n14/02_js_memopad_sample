@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>GRAYCODE JavaScript</title>
+  <title>LOCAL</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="index.css">
   <script>
@@ -13,8 +13,6 @@
 
     // document.getElementById("id名").getElementsByClassName("クラス名");
     // id内の要素をclassを指定して取得
-
-
 
 
     // ページ読み込み時に実行したい場合。
@@ -81,16 +79,39 @@
       $("#btn").on("click", function () {
         const tw = $("#input").val();
         //TWEETSの空要素に（）の中身をぶち込んでいる所。
-        tweets.unshift("<p>" + tw + "</p>");
+        tweets.unshift("<p class=\"Tech\">" + tw + "</p>");
         // tweetの要素をtweetsに書き換えている所。
         $("#tweet").html(tweets);
         // ID:inputに空要素取得させてる所。
         $("#input").val("");
         // // ページ読み込み時に実行したい処理
       });
+      // ーーーーーーーーーーーーーーーーーーーーーーーーーー
 
+
+      $("#save").on("click", function () {
+        // alert(1 + 1)
+        const text = $("#input").val();
+        console.log(text);
+        localStorage.setItem("memo", text);
+      });
+
+
+      $("#clear").on("click", function () {
+        //  alert("1" + "1") 
+        localStorage.clear()
+      });
+      // ーーーーーーーーーーーーーーーーーーーーーーーーーー
+      const now = new Date();
+      // 日付を取得 変数名 NOW
+      target = document.getElementById('demo1');
+      // クラス'demo1'を対象とする。
+      target.innerHTML = now;
+      // targetを＝now に書き換える。
+
+
+      // ーーーーーーーーーーーーーーーーーーーーーーーーーー
     });
-
   </script>
 </head>
 
@@ -116,8 +137,32 @@
       <p>これは要素Pです。同じく消えます。</p>
     </div>
   </div>
-  <div id="echo"></div>
+  <div class="Save">
+    <ul>
+      <li>
+        <button id="save" type="button">
+          Saveクリック！
+        </button>
+      </li>
+      <li>
+        <button id="clear" type="button">
+          Clearクリック！
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ーーーーーーーーーーーーーーーー -->
   <select name="" id="ç"></select>
+  <p id="demo1"></p>
+
+
+  <!-- ーーーーーーーーーーーーーーーー -->
+
+
+
+
+  <!-- ーーーーーーーーーーーーーーーー -->
 </body>
 
 </html>
