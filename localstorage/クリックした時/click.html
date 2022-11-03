@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <title>GRAYCODE JavaScript</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>LOCAL</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="index.css">
   <script>
     // 対象の取り方
     // document.getElementById("id名");
@@ -12,8 +13,6 @@
 
     // document.getElementById("id名").getElementsByClassName("クラス名");
     // id内の要素をclassを指定して取得
-
-
 
 
     // ページ読み込み時に実行したい場合。
@@ -59,32 +58,64 @@
     }
 
 
-    window.addEventListener('load', function () {
-      // ID＝button1を.クリックした時に,実行したい処理
-      button1.addEventListener('click', function () {
-        // document.write("表示したい文字列");
-        var sampleArea = document.getElementById("target");
-        sampleArea.innerHTML = "表示したい文字列";
-      });
-    
 
-     // テキストを入れるための配列を用意する
+    // ID＝button1を.クリックした時に,実行したい処理
+    // button1.addEventListener('click', function () {
+    //   // document.write("表示したい文字列");
+    //   var sampleArea = document.getElementById("target");
+    //   sampleArea.innerHTML = "表示したい文字列";
+    // });
+
+    // ーーーーーーーーーーーーーーーーーー
+
+    window.addEventListener('load', function () {
+      // テキストを入れるための配列を用意する
       const tweets = [];
 
       // ID：BTNをクリックしたら、変数TW＝INPUTの取得した中身と定義している所
       $("#btn").on("click", function () {
         const tw = $("#input").val();
         //TWEETSの空要素に（）の中身をぶち込んでいる所。
-        tweets.unshift("<p>" + tw + "</p>");
+        tweets.unshift("<p class=\"Tech\">" + tw + "</p>");
         // tweetの要素をtweetsに書き換えている所。
         $("#tweet").html(tweets);
+
+
+        const text = $("#input").val();
+        console.log(text);
+        localStorage.setItem(localStorage.length, text);
+        console.log(localStorage.length)
+
         // ID:inputに空要素取得させてる所。
         $("#input").val("");
-    // // ページ読み込み時に実行したい処理
+        console.log(tweets)
+      });
+      // ーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+
+      $("#save").on("click", function () {
+        // // alert(1 + 1)
+        // const text = $("#input").val();
+        // console.log(text);
+        // localStorage.setItem("memo", text);
       });
 
-    });
 
+      $("#clear").on("click", function () {
+        //  alert("1" + "1") 
+        localStorage.clear()
+      });
+      // ーーーーーーーーーーーーーーーーーーーーーーーーーー
+      const now = new Date();
+      // 日付を取得 変数名 NOW
+      target = document.getElementById('demo1');
+      // クラス'demo1'を対象とする。
+      target.innerHTML = now;
+      // targetを＝now に書き換える。
+
+
+      // ーーーーーーーーーーーーーーーーーーーーーーーーーー
+    });
   </script>
 </head>
 
@@ -93,18 +124,49 @@
   <button id="button1">クリック！</button>
   <div id="target">ここを変える-id="target"</div>
   <div class="target"> ここを変える-class="target"</div>
+
+
+
+  <!-- ーーーーーーーーーーーーーーーー -->
+
+
+
   <h1 class="title">配列の練習</h1>
   <input type="text" id="input">
-  <button id="btn">tweet</button>
-  <div>
-    <h1>ここにブチ込まれます。</h1>
+  <button id="btn">Button</button>
+  <div class="Tech">
+    ここの文字は消えません。
     <div id="tweet" class="TEST">
-      <h1>ここの文字は消えます</h1>
-  
+      ここにぶち込み、文字は消えます。
+      <p>これは要素Pです。同じく消えます。</p>
     </div>
   </div>
-  <div id="echo"></div>
+  <div class="Save">
+    <ul>
+      <li>
+        <button id="save" type="button">
+          Saveクリック！
+        </button>
+      </li>
+      <li>
+        <button id="clear" type="button">
+          Clearクリック！
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ーーーーーーーーーーーーーーーー -->
   <select name="" id="ç"></select>
+  <p id="demo1"></p>
+
+
+  <!-- ーーーーーーーーーーーーーーーー -->
+
+
+<!-- ここだけ -->
+
+  <!-- ーーーーーーーーーーーーーーーー -->
 </body>
 
 </html>

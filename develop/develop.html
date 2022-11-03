@@ -77,7 +77,7 @@
     // ローカルストレージにデータがあるなら動作する所。------------------
     //  もしローカルストレージの（”memo”というキー）データがあるなら
     if (localStorage.getItem("memo")) {
-     
+
       // const text = localStorage.getItem("memo");
       // console.log(text) 
       // ローカルストレージの（”memo”というキー）データを取得する
@@ -85,12 +85,12 @@
       // 取得したジョンソンデータをJAS向けに直す
       const data = JSON.parse(jsonData);
       console.log(data);
-      
+
       $("#text_area").val(data.text + data.date);
       $("#input").val(data.title);
     }
     // ----------------------------------------------------------------
- 
+
 
 
 
