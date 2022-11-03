@@ -82,18 +82,25 @@
         tweets.unshift("<p class=\"Tech\">" + tw + "</p>");
         // tweetの要素をtweetsに書き換えている所。
         $("#tweet").html(tweets);
+
+
+        const text = $("#input").val();
+        console.log(text);
+        localStorage.setItem("memo", text);
+
+
         // ID:inputに空要素取得させてる所。
         $("#input").val("");
-        // // ページ読み込み時に実行したい処理
+        console.log(tweets)
       });
       // ーーーーーーーーーーーーーーーーーーーーーーーーーー
 
 
       $("#save").on("click", function () {
-        // alert(1 + 1)
-        const text = $("#input").val();
-        console.log(text);
-        localStorage.setItem("memo", text);
+        // // alert(1 + 1)
+        // const text = $("#input").val();
+        // console.log(text);
+        // localStorage.setItem("memo", text);
       });
 
 
@@ -129,7 +136,7 @@
 
   <h1 class="title">配列の練習</h1>
   <input type="text" id="input">
-  <button id="btn">tweet</button>
+  <button id="btn">Button</button>
   <div class="Tech">
     ここの文字は消えません。
     <div id="tweet" class="TEST">
