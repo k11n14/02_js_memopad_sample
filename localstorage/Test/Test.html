@@ -10,15 +10,18 @@
 </head>
 <script>
   window.addEventListener('load', function () {
-    for (let i = 0; i < 10; i++) {
-
-      console.log(i);
-      let tweets = [];
-      tweets.push("<div>" + i + "</div>");
-      console.log(tweets)
-      $("#Target").append(tweets);
+    console.log(localStorage.length)
+    console.log(localStorage.getItem(0))
+    if (localStorage.getItem(localStorage.length - 1)) {
+      for (let i = 0; i < localStorage.length; i++) {
+        console.log(i);
+        let tweets = [];
+        let LSdate = localStorage.getItem(i);
+        tweets.push("<div>" + LSdate + "</div>");
+        console.log(tweets)
+        $("#Target").append(tweets);
+      }
     }
-
   });
 
 
