@@ -23,3 +23,12 @@
   border: solid;
 }
 
+#Memory {
+  border: solid;
+  border-color: brown;
+}
+
+.New {
+  color: red;
+  border: solid;
+}
