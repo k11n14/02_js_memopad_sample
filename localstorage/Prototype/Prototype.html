@@ -116,25 +116,39 @@
 
 
       // ーーーーーーーーーーーーーーーーーーーーーーーーーー
-
-      console.log(localStorage.length-1)
       if (localStorage.getItem(localStorage.length - 1)) {
-        const text = localStorage.getItem(localStorage.length - 1);
-        console.log(text)
-        Memory.innerHTML = text;
+        for (let i = 0; i < localStorage.length; i++) {
+          console.log(i);
+          const Box = [];
+          const LSdate = localStorage.getItem(i);
+          Box.push("<div>" + LSdate + "</div>");
+          console.log(Box)
+          $("#Memory").prepend(Box);
+        }
       }
-      console.log(Memory)
-      console.log("")
+
+
+
+
+
+      // console.log(localStorage.length-1)
+      // if (localStorage.getItem(localStorage.length - 1)) {
+      //   const text = localStorage.getItem(localStorage.length - 1);
+      //   console.log(text)
+      //   Memory.innerHTML = text;
+      // }
+      // console.log(Memory)
+      // console.log("")
       // ーーーーーーーーーーーーーーーーーーーーーーーーーー
     });
   </script>
 </head>
 
 <body>
-  <h1>JavaScriptレシピ</h1>
+  <!-- <h1>JavaScriptレシピ</h1>
   <button id="button1">クリック！</button>
   <div id="target">ここを変える-id="target"</div>
-  <div class="target"> ここを変える-class="target"</div>
+  <div class="target"> ここを変える-class="target"</div> -->
 
 
 
@@ -142,16 +156,16 @@
 
 
 
-  <h1 class="title">配列の練習</h1>
-  <input type="text" id="input">
-  <button id="btn">Button</button>
+  <h1 class="title">ついた</h1>
+
   <div class="">
     ここの文字は消えません。
     <div id="tweet" class="TEST">
       ここにぶち込み、文字は消えます。
       <p>これは要素Pです。同じく消えます。</p>
-    
     </div>
+    <input type="text" id="input">
+    <button id="btn">Button</button>
   </div>
 
   <div id="Memory" class="memory">
@@ -160,22 +174,23 @@
 
 
   <div class="Save">
-    <ul>
+    <button id="clear" type="button">
+      Clearクリック！
+    </button>
+    <!-- <ul>
       <li>
         <button id="save" type="button">
           Saveクリック！
         </button>
       </li>
       <li>
-        <button id="clear" type="button">
-          Clearクリック！
-        </button>
+
       </li>
-    </ul>
+    </ul> -->
   </div>
 
   <!-- ーーーーーーーーーーーーーーーー -->
-  <select name="" id="ç"></select>
+  <!-- <select name="" id="ç"></select> -->
   <p id="demo1"></p>
 
 

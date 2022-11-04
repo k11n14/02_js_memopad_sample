@@ -15,8 +15,8 @@
     if (localStorage.getItem(localStorage.length - 1)) {
       for (let i = 0; i < localStorage.length; i++) {
         console.log(i);
-        let tweets = [];
-        let LSdate = localStorage.getItem(i);
+        const tweets = [];
+        const LSdate = localStorage.getItem(i);
         tweets.push("<div>" + LSdate + "</div>");
         console.log(tweets)
         $("#Target").append(tweets);
