@@ -18,19 +18,26 @@
   border: solid;
 }
 
-.Tech,
-.TEST {
+.Tech{
   border: solid;
 }
 
-#Memory {
+/* #Memory {
   border: solid;
   border-color: brown;
-}
+} */
 
 .New {
   margin-block-start: 1em;
   margin-block-end: 1em;
-  color: red;
+
   border: solid;
+  color: red;
+}
+
+.memodate {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  border: solid;
+  color: orange;
 }

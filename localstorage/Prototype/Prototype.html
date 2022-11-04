@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-  <meta charset="utf-8">
+  <meta char1 qasdfet="utf-8">
   <title>Prototype</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="Prototype.css">
@@ -95,7 +95,8 @@
       //  LSのデータを全部消してる所
       $("#clear").on("click", function () {
         //  alert("1" + "1") 
-        localStorage.clear()
+        localStorage.clear();
+        location.reload();
       });
 
 
@@ -112,7 +113,9 @@
       // 変数target=ID:demo1を対象
       target = document.getElementById('demo1');
       // targetの中にtodayをぶち込み
-      target.innerHTML = today;
+      const Time = (today.getFullYear() + "年" + (today.getMonth() + 1) + "月" + today.getDate() + "日" + today.getHours() + "時" + today.getMinutes() + "分");
+
+      target.innerHTML = Time;
 
 
       // ーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -121,7 +124,7 @@
           console.log(i);
           const Box = [];
           const LSdate = localStorage.getItem(i);
-          Box.push("<div>" + LSdate + "</div>");
+          Box.push("<div class=memodate>" + LSdate + "</div>");
           console.log(Box)
           $("#Memory").prepend(Box);
         }
@@ -156,26 +159,26 @@
 
 
 
-  <h1 class="title">ついた</h1>
+  <h1 class="title">memo</h1>
 
   <div class="">
-    ここの文字は消えません。
+    <h2>入力画面！</h2><!-- ここの文字は消えません。 -->
     <div id="tweet" class="TEST">
-      ここにぶち込み、文字は消えます。
-      <p>これは要素Pです。同じく消えます。</p>
+      <!-- ここにぶち込み、文字は消えます。 -->
+      <!-- <p>これは要素Pです。同じく消えます。</p> -->
     </div>
     <input type="text" id="input">
     <button id="btn">Button</button>
   </div>
 
   <div id="Memory" class="memory">
-    <div>ここにLSのデータを表示させたい</div>
+    <!-- <div>ここにLSのデータを表示させたい</div> -->
   </div>
 
 
   <div class="Save">
     <button id="clear" type="button">
-      Clearクリック！
+      Clear
     </button>
     <!-- <ul>
       <li>
